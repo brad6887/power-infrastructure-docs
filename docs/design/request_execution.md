@@ -216,6 +216,47 @@ Examples:
 
 ---
 
+# Execution Types
+
+The Workflow Engine supports two execution types.
+
+## Request
+
+Formal operational work initiated by a ticket, change request, or incident.
+
+Examples:
+
+- User provisioning
+- User removal
+- Disaster recovery
+- Backup restore
+
+Artifacts are stored under:
+
+```
+docs/generated/requests/
+```
+
+## Ad-hoc
+
+Engineering and operational reporting that is not associated with a formal request.
+
+Examples:
+
+- AIX patch reports
+- Inventory reports
+- Health checks
+- Capacity reports
+
+Artifacts are stored under:
+
+```
+docs/generated/ad-hoc/
+```
+
+Both execution types use the same Workflow Engine and execution stages.
+
+---
 # Long-Term Vision
 
 The Request Execution Framework becomes the standard execution model for every operational capability.

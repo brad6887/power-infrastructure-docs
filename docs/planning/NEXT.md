@@ -26,6 +26,18 @@ Next steps:
 - Define workflow artifact handling
 - Expand workflow context lifecycle
 - Continue migrating reusable behavior from User Administration into the Workflow Engine
+Continue expanding reusable workflow stages.
+
+Implement:
+
+- workflow_validate
+- workflow_plan
+- workflow_execute
+- workflow_verify
+- workflow_deliver
+- workflow_archive
+
+Continue separating workflow execution from report rendering and delivery.
 
 ### CLI Documentation
 

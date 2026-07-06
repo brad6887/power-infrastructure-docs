@@ -75,6 +75,16 @@
 - [ ] PDF reports
 - [ ] Workflow summaries
 - [ ] Execution summaries
+### Reporting Framework
+
+- [ ] Generic report data model
+- [ ] Markdown renderer
+- [ ] CSV renderer
+- [ ] HTML renderer
+- [ ] JSON renderer
+- [ ] PDF renderer
+- [ ] Email delivery
+- [ ] Documentation publishing
 
 ---
 

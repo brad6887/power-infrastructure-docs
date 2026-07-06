@@ -70,6 +70,32 @@ Completed:
 - Initial user removal
 - Communications generation
 
+### Workflow Engine
+
+The Workflow Engine continued to mature into the standard execution framework for Power Infrastructure.
+
+Completed:
+
+- Added support for both request-driven and ad-hoc workflows.
+- Introduced workflow workspaces under `docs/generated/`.
+- Added reusable `workflow_prepare` role.
+- Began reusable workflow delivery architecture.
+
+The Workflow Engine is now capable of supporting both operational change workflows and engineering/reporting workflows using a common execution model.
+
+### CLI Improvements
+
+The `pwr` command continues to evolve from a collection of helper scripts into a structured engineering CLI.
+
+Completed:
+
+- Added command-specific help for `workflow`.
+- Added command-specific help for `publish`.
+- Added command-specific help for `playbook`.
+- Standardized command structure across major CLI components.
+
+This structure is intended to remain aligned with the Abbey Root `abbey` CLI.
+
 ---
 
 # Current Priorities

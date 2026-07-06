@@ -4,6 +4,8 @@ This document maps the current User Administration workflow to the future Workfl
 
 The purpose is to identify which parts of the current implementation are workflow-specific and which parts should eventually become reusable Workflow Engine components.
 
+The User Administration workflow serves as the reference implementation for all request-driven workflows, while ad-hoc reporting workflows validate the reusable Workflow Engine independently of ticket-based operations.
+
 ---
 
 # Current Add User Workflow
