@@ -86,6 +86,19 @@ Current work includes:
 - Power CLI
 - Reporting framework
 
+### Workflow Engine
+
+Initial implementation completed.
+
+Completed:
+
+- Generic `workflow_prepare` role
+- Standard `workflow_context`
+- Workflow workspace creation
+- Workflow metadata initialization
+- Successful integration into the Add User workflow
+- Initial Workflow Engine prototype validated
+
 ---
 
 # Milestone Philosophy

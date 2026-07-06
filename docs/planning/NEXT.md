@@ -2,27 +2,36 @@
 
 ## Primary Goal
 
-Continue standardizing the Power Infrastructure engineering platform while using User Administration as the reference implementation for future operational workflows.
+Continue implementing the Workflow Engine while using User Administration as the reference implementation for future operational workflows.
+
+The documentation framework has now been standardized. Future effort should focus on implementing the engineering architecture that the documentation describes.
 
 ---
 
-## Priority 1 - Documentation Review
+## Priority 1 - Workflow Engine
 
-Complete the documentation standardization effort.
+Continue implementing the Workflow Engine.
 
-Review and refine:
+Completed:
 
-- Planning documents
-- Guide documents
-- Reference documents
+- Initial `workflow_prepare` role
+- Standard `workflow_context`
+- Workflow workspace creation
+- Initial integration with the Add User workflow
 
-Compare with Abbey Root and keep the documentation frameworks aligned while allowing project-specific content.
+Next steps:
+
+- Implement `workflow_validate`
+- Define the standard workflow result object
+- Define workflow artifact handling
+- Expand workflow context lifecycle
+- Continue migrating reusable behavior from User Administration into the Workflow Engine
 
 ---
 
 ## Priority 2 - Complete User Administration
 
-Finish the reference workflow.
+Continue using User Administration as the reference implementation.
 
 ### User Removal
 
@@ -59,35 +68,17 @@ New commands:
 
 ---
 
-## Priority 4 - Workflow Engine
+## Priority 4 - Workflow Reporting
 
-Continue defining the reusable workflow architecture.
+Begin moving reporting into generic Workflow Engine stages.
 
-Refine:
+Focus on:
 
-```
-Request
-    ↓
-Prepare
-    ↓
-Workflow Preparation
-    ↓
-Validate
-    ↓
-Plan
-    ↓
-Execute
-    ↓
-Verify
-    ↓
-Report
-    ↓
-Documentation
-    ↓
-Archive
-```
-
-Ensure future operational workflows follow this engineering model.
+- Generic workflow reporting
+- Markdown report generation
+- Workflow artifacts
+- Execution summaries
+- Verification summaries
 
 ---
 
@@ -97,9 +88,9 @@ If time permits:
 
 - `pwr user` command wrapper
 - `pwr backup` command wrapper
-- Generic reporting role
-- Workflow metadata framework
+- Generic documentation role
 - Documentation publishing enhancements
+- Workflow statistics
 
 ---
 
@@ -108,3 +99,5 @@ If time permits:
 Every production request should improve the engineering platform.
 
 The objective is not simply to automate individual tasks, but to build reusable engineering workflows that become the standard approach for future operational work.
+
+The User Administration workflow remains the reference implementation for validating Workflow Engine concepts before those concepts are applied to backup, restore, inventory, patch management, and disaster recovery workflows.

@@ -8,75 +8,62 @@
 
 ## Engineering Platform
 
-Power Infrastructure has evolved from a collection of automation playbooks into an engineering platform for IBM Power administration.
+The project has moved beyond individual automation playbooks and is now focused on building a reusable engineering platform for IBM Power infrastructure.
 
-The project's foundation now includes standardized documentation, reusable automation components, request-driven workflows, and a growing command-line interface built around the `pwr` toolkit.
+The primary emphasis is developing common workflows, reusable roles, a generic Workflow Engine, request-driven operations, and a unified command-line interface.
 
 ---
 
 # Overall Status
 
-The core engineering framework is established.
+Current focus:
 
-Major capabilities currently include:
-
-- Standardized planning and documentation
-- Request-driven workflow architecture
-- Reusable Ansible role framework
+- Workflow Engine implementation
+- Request-driven operational workflows
+- Reusable engineering framework
 - Validation-first automation
-- Generated request workspaces
-- Enterprise command-line interface (`pwr`)
+- Enterprise toolkit (`pwr`)
+- Generated documentation
 
-New operational workflows are now expected to build upon these shared components rather than introducing standalone implementations.
-
----
-
-# Completed Capabilities
-
-## Documentation Framework
-
-Completed:
-
-- Documentation structure
-- Planning framework
-- Guide documentation
-- Reference documentation
-- Session update framework
-- Documentation publishing workflow
+The architectural foundation is now stable enough that new operational workflows can be built from common components rather than starting from scratch.
 
 ---
+
+# Recent Accomplishments
 
 ## Workflow Framework
 
 Completed:
 
-- Common preparation framework
-- Validation framework
-- Request-driven workflow architecture
-- Workflow design standard
-- User provisioning framework
-- Initial user removal framework
+- Common user preparation framework
+- Workflow-specific preparation stages
+- Request-driven user provisioning
+- Initial user removal workflow
+- Request workspace framework (`pwr request`)
+- Workflow Engine architecture
+- Initial `workflow_prepare` role
+- Standard `workflow_context`
+- Workflow workspace creation
+- Initial Workflow Engine integration with the Add User workflow
+- Production user provisioning successfully validated
 
----
-
-## Power CLI
+## Toolkit
 
 Completed:
 
-- Repository-aware playbook execution
+- Repository-aware `pwr playbook`
 - Automatic playbook discovery
-- `pwr playbook`
 - `pwr request`
 - `pwr doctor`
-- Documentation publishing
-- Enhanced Git utilities
+- Enhanced Git status commands
+- Bitbucket integration completed
 
----
-
-## Operational Automation
+## Operational Roles
 
 Completed:
 
+- Common validation framework
+- Shared preparation framework
 - User creation
 - SSH key deployment
 - User verification
@@ -85,21 +72,39 @@ Completed:
 
 ---
 
-# Project Health
+# Current Priorities
 
-The engineering foundation is stable.
-
-Documentation, workflow architecture, and tooling now provide a consistent platform for future operational capabilities.
-
-Development efforts are focused on expanding reusable workflows rather than creating isolated automation.
+1. Continue implementing the Workflow Engine
+2. Complete the User Administration framework
+3. Implement request lifecycle management
+4. Build the reporting framework
+5. Build generated documentation
+6. Continue expanding operational workflows
 
 ---
 
 # Current Risks
 
+- Documentation generation framework is still under development.
 - Reporting framework is not yet standardized.
-- Documentation generation continues to evolve.
-- Several operational workflows still require additional validation and idempotency improvements.
+- Some operational workflows are not yet fully idempotent.
+- The Workflow Engine is in its initial implementation phase and currently uses the User Administration workflow as its reference implementation.
+
+---
+
+# Next Major Goal
+
+Continue implementing the Workflow Engine using User Administration as the reference workflow.
+
+Immediate objectives:
+
+- Standardize workflow validation.
+- Implement `workflow_validate`.
+- Define a standard workflow result object.
+- Expand generic workflow reporting.
+- Continue moving reusable behavior into the Workflow Engine.
+
+The User Administration workflow will remain the reference implementation before the architecture is applied to backup, restore, inventory, patch management, and disaster recovery workflows.
 
 ---
 
@@ -108,16 +113,18 @@ Development efforts are focused on expanding reusable workflows rather than crea
 ## Planning
 
 - `planning/VISION.md`
-- `planning/ROADMAP.md`
-- `planning/BACKLOG.md`
 - `planning/NEXT.md`
+- `planning/BACKLOG.md`
+- `planning/ROADMAP.md`
 - `planning/MILESTONES.md`
 
 ## Design
 
 - `design/philosophy.md`
 - `design/architecture.md`
+- `design/role_framework.md`
 - `design/workflow_engine.md`
+- `design/user_workflow_mapping.md`
 
 ## Generated Documentation
 
