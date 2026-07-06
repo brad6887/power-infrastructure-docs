@@ -2,44 +2,15 @@
 
 ## High Priority
 
-### User Administration
-
-#### Complete User Lifecycle
-
-- [ ] Make user creation fully idempotent
-- [ ] Complete user removal workflow
-- [ ] Create `aix_user_validate_remove`
-- [ ] User lock
-- [ ] User unlock
-- [ ] Password reset
-- [ ] Standalone SSH key management
-- [ ] Multiple SSH key support
-
-#### Workflow Improvements
+### Workflow Framework
 
 - [ ] Generic workflow reporting
 - [ ] Standard execution result object
+- [ ] Standard workflow metadata
 - [ ] Markdown execution reports
 - [ ] Capture operator, execution time, validation results, and execution results
 - [ ] Store generated artifacts inside the request workspace
 - [ ] Minimize prepared user objects by workflow
-
----
-
-### Request Lifecycle
-
-- [x] `pwr request`
-- [ ] Request metadata (`request.yml`)
-- [ ] Request status tracking
-- [ ] Open / In Progress / Completed / Archived
-- [ ] Completion timestamps
-- [ ] Request owner
-- [ ] Workflow type
-- [ ] `pwr request open`
-- [ ] `pwr request completed`
-- [ ] `pwr request archive`
-- [ ] Request statistics
-- [ ] Request summaries
 
 ---
 
@@ -63,6 +34,34 @@
 
 ---
 
+### Request Lifecycle
+
+- [x] `pwr request`
+- [ ] Request metadata (`request.yml`)
+- [ ] Request status tracking
+- [ ] Open / In Progress / Completed / Archived
+- [ ] Completion timestamps
+- [ ] Request owner
+- [ ] Workflow type
+- [ ] `pwr request open`
+- [ ] `pwr request completed`
+- [ ] `pwr request archive`
+- [ ] Request statistics
+- [ ] Request summaries
+
+---
+
+### Documentation Framework
+
+- [ ] Review planning documents
+- [ ] Review guide documents
+- [ ] Review reference documents
+- [ ] Standardize documentation with Abbey Root
+- [ ] Expand generated documentation
+- [ ] Documentation quality validation
+
+---
+
 ### Reporting Framework
 
 - [ ] Standard report role
@@ -74,17 +73,18 @@
 
 ---
 
-### Documentation Engine
+### User Administration
 
-- [ ] Request documentation
-- [ ] Execution documentation
-- [ ] Environment documentation
-- [ ] Inventory documentation
-- [ ] HMC documentation
-- [ ] VIOS documentation
-- [ ] LPAR documentation
-- [ ] Disaster Recovery documentation
-- [ ] Capacity documentation
+#### Complete User Lifecycle
+
+- [ ] Make user creation fully idempotent
+- [ ] Complete user removal workflow
+- [ ] Create `aix_user_validate_remove`
+- [ ] User lock
+- [ ] User unlock
+- [ ] Password reset
+- [ ] Standalone SSH key management
+- [ ] Multiple SSH key support
 
 ---
 
@@ -100,21 +100,13 @@
 
 ---
 
-### LPAR Lifecycle
-
-- [ ] Deployment
-- [ ] Decommissioning
-- [ ] Validation
-- [ ] Documentation
-
----
-
 ### Inventory
 
 - [ ] Metadata merge
 - [ ] Override file
 - [ ] Maintenance groups
 - [ ] Environment metadata
+- [ ] Historical inventory
 
 ---
 
@@ -129,7 +121,16 @@
 
 ---
 
-## Long Term
+### LPAR Lifecycle
+
+- [ ] Deployment
+- [ ] Decommissioning
+- [ ] Validation
+- [ ] Documentation
+
+---
+
+## Low Priority
 
 ### Disaster Recovery
 
@@ -138,6 +139,8 @@
 - [ ] Deployment automation
 - [ ] Validation
 
+---
+
 ### Patch Management
 
 - [ ] Alternate disk validation
@@ -145,10 +148,14 @@
 - [ ] Rollback planning
 - [ ] Reporting
 
+---
+
 ### Platform Upgrades
 
-- [ ] AIX 7.3
-- [ ] VIOS
+- [ ] AIX 7.3 automation
+- [ ] VIOS automation
+
+---
 
 ### Enterprise Reporting
 
@@ -156,30 +163,3 @@
 - [ ] Capacity reporting
 - [ ] Compliance reporting
 - [ ] Change reporting
-
----
-
-## Future Ideas
-
-### Work Management
-
-- [ ] Incident workspaces
-- [ ] Change workspaces
-- [ ] Maintenance workspaces
-- [ ] Request archive
-- [ ] Timeline tracking
-
-### Developer Experience
-
-- [ ] Role generator
-- [ ] Workflow generator
-- [ ] Project templates
-- [ ] Installer improvements
-- [ ] Fresh clone validation
-
-### Website Integration
-
-- [ ] Publish generated documentation
-- [ ] Status dashboard
-- [ ] Operational reports
-- [ ] Documentation portal

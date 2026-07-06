@@ -20,16 +20,15 @@
 
 ---
 
-## Phase 2 - Engineering Platform (Current)
+## Phase 2 - Engineering Framework
 
-### Workflow Engine
+### Inventory Platform
 
-- Complete reusable workflow architecture
-- Common preparation framework
-- Validation framework
-- Reporting framework
-- Communications framework
-- Documentation framework
+- Inventory collection
+- Metadata management
+- Generated inventory
+- Inventory validation
+- Historical inventory
 
 ### Power CLI
 
@@ -101,6 +100,16 @@ Manage operational work instead of individual playbooks.
 
 Automatically generate documentation from the environment.
 
+### Workflow Engine
+
+- Complete reusable workflow architecture
+- Common preparation framework
+- Validation framework
+- Reporting framework
+- Communications framework
+- Documentation framework
+
+
 ### Generated Documentation
 
 - Request documentation
@@ -159,7 +168,7 @@ Automatically generate documentation from the environment.
 
 ---
 
-## Phase 8 - Enterprise Operations
+## Phase 8 - Operational Intelligence
 
 ### Reporting
 

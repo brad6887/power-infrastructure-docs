@@ -2,15 +2,31 @@
 
 ## Primary Goal
 
-Continue developing the User Administration framework until it becomes the reference implementation for all future operational workflows.
+Continue standardizing the Power Infrastructure engineering platform while using User Administration as the reference implementation for future operational workflows.
 
 ---
 
-## Priority 1 - Complete User Administration
+## Priority 1 - Documentation Review
+
+Complete the documentation standardization effort.
+
+Review and refine:
+
+- Planning documents
+- Guide documents
+- Reference documents
+
+Compare with Abbey Root and keep the documentation frameworks aligned while allowing project-specific content.
+
+---
+
+## Priority 2 - Complete User Administration
+
+Finish the reference workflow.
 
 ### User Removal
 
-- Create `aix_user_validate_remove`
+- Complete `aix_user_validate_remove`
 - Complete remove-user execution
 - Verify idempotent behavior
 - Test complete add/remove lifecycle
@@ -23,9 +39,9 @@ Continue developing the User Administration framework until it becomes the refer
 
 ---
 
-## Priority 2 - Request Lifecycle
+## Priority 3 - Request Lifecycle
 
-Continue expanding `pwr request`.
+Continue expanding the request management framework.
 
 Implement:
 
@@ -43,15 +59,11 @@ New commands:
 
 ---
 
-## Priority 3 - Workflow Documentation
+## Priority 4 - Workflow Engine
 
-Create:
+Continue defining the reusable workflow architecture.
 
-```
-docs/design/workflow_engine.md
-```
-
-Document the standard workflow architecture:
+Refine:
 
 ```
 Request
@@ -75,21 +87,7 @@ Documentation
 Archive
 ```
 
-This becomes the reference design for all future operational workflows.
-
----
-
-## Priority 4 - Documentation Framework
-
-Begin building reusable generated documentation.
-
-Focus on:
-
-- Request summaries
-- Validation reports
-- Execution reports
-- Verification reports
-- Markdown generation
+Ensure future operational workflows follow this engineering model.
 
 ---
 
@@ -101,6 +99,7 @@ If time permits:
 - `pwr backup` command wrapper
 - Generic reporting role
 - Workflow metadata framework
+- Documentation publishing enhancements
 
 ---
 

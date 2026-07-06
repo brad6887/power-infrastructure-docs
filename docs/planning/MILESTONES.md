@@ -70,116 +70,32 @@ This established the reference architecture for future operational workflows.
 
 ---
 
-## Milestone 6 - Engineering Platform (Current)
+## Current Milestone
 
-Current objectives:
+### Engineering Platform
 
-### Workflow Engine
+Current objective:
 
-- Generic workflow pipeline
-- Workflow reporting
-- Documentation generation
-- Fully idempotent execution
+Establish Power Infrastructure as a reusable engineering platform for IBM Power administration.
 
-### Power CLI
+Current work includes:
 
-Continue evolving `pwr` into the primary engineering interface.
-
-Recent additions:
-
-- Repository-aware playbook execution
-- Automatic playbook discovery
-- `pwr request`
-- Bitbucket integration
-
-### Request Lifecycle
-
-Initial implementation completed.
-
-Next steps:
-
-- Request metadata
-- Status tracking
-- Request history
-- Open / Closed requests
-- Incident workspaces
-- Change workspaces
+- Workflow engine
+- Request lifecycle
+- Documentation engine
+- Power CLI
+- Reporting framework
 
 ---
 
-## Milestone 7 - Documentation Engine (Planned)
+# Milestone Philosophy
 
-Planned:
+Milestones represent significant engineering achievements.
 
-- Generated request documentation
-- Generated execution documentation
-- Environment documentation
-- Inventory documentation
-- Operational reporting
+Unlike the roadmap, milestones do not describe future plans.
 
----
+A milestone is added only after a major capability has been completed.
 
-## Milestone 8 - Lifecycle Management (Planned)
+The roadmap describes where the project is going.
 
-Planned:
-
-- User lifecycle completion
-- LPAR deployment
-- LPAR decommissioning
-- Patch management
-- AIX upgrades
-- VIOS upgrades
-
----
-
-## Milestone 9 - Disaster Recovery (Planned)
-
-Planned:
-
-- DR documentation
-- Recovery planning
-- Automated deployment
-- Validation
-- Post-deployment reporting
-
----
-
-## Milestone 10 - Production Engineering Platform (Long-Term)
-
-Power Infrastructure becomes the authoritative engineering platform for:
-
-- IBM Power Systems
-- AIX
-- VIOS
-- HMC
-- Pure Storage
-- Veeam
-- Disaster Recovery
-- LPAR Lifecycle
-- Patch Management
-- Enterprise Reporting
-- Enterprise Documentation
-
-Every operational workflow follows the lifecycle:
-
-```
-Request
-    ↓
-Prepare
-    ↓
-Workflow Preparation
-    ↓
-Validate
-    ↓
-Plan
-    ↓
-Execute
-    ↓
-Verify
-    ↓
-Report
-    ↓
-Documentation
-    ↓
-Archive
-```
+Milestones record how the project got there.

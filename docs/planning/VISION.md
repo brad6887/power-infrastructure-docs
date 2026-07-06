@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Power Infrastructure exists to transform IBM Power administration from a collection of manual procedures into a repeatable engineering platform.
+Power Infrastructure exists to transform IBM Power administration from a collection of manual procedures into a repeatable engineering platform built on inventory, validation, documentation, and automation.
 
 The project combines inventory, validation, documentation, reporting, and automation into a single operational framework that improves consistency, reliability, and visibility across the environment.
 
@@ -85,3 +85,17 @@ Power Infrastructure is designed to evolve alongside the infrastructure it manag
 As new technologies, operational requirements, and automation opportunities emerge, the project will continue to expand while remaining grounded in its core engineering principles.
 
 The ultimate goal is to provide a trusted engineering platform that supports the entire lifecycle of IBM Power operations.
+
+---
+
+# What Power Infrastructure Is Not
+
+Power Infrastructure is not intended to be a research project or experimental lab.
+
+New concepts, tooling, and engineering practices should be developed and refined in Abbey Root before being incorporated into Power Infrastructure.
+
+Power Infrastructure prioritizes operational reliability, repeatability, and enterprise readiness over experimentation.
+
+---
+
+Ultimately, the project should become the primary engineering interface for administering IBM Power infrastructure, allowing operational knowledge to be captured once and reused throughout the environment.
