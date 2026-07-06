@@ -31,6 +31,11 @@
 - [ ] Execution history
 - [ ] Colorized output
 - [ ] Shell completion
+- [ ] Command metadata standard
+- [ ] Auto-generated `pwr help`
+- [ ] Auto-generated Markdown CLI reference
+- [ ] Common task examples in help output
+- [ ] Keep `pwr` and `abbey` command documentation aligned
 
 ---
 

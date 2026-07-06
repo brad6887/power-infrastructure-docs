@@ -27,6 +27,14 @@ Next steps:
 - Expand workflow context lifecycle
 - Continue migrating reusable behavior from User Administration into the Workflow Engine
 
+### CLI Documentation
+
+- [ ] Create command metadata standard.
+- [ ] Generate `pwr help` from command metadata.
+- [ ] Generate Markdown CLI reference from command metadata.
+- [ ] Add common task examples to CLI help.
+- [ ] Keep `pwr` and `abbey` command documentation aligned.
+
 ---
 
 ## Priority 2 - Complete User Administration
