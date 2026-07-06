@@ -1,0 +1,21 @@
+Request REQ0720991 has been completed.
+
+Description:
+Third-party B2Bi upgrade access
+
+The following AIX account was created successfully:
+
+User ID: bklein
+Name: Brian Klein
+
+Servers:
+- txedip11
+- txedit11
+
+SSH public key installation was completed.
+
+Verification completed successfully:
+- User account verified
+- SSH authorized_keys verified
+
+No errors were encountered during execution.

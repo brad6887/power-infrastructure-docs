@@ -1,0 +1,21 @@
+Subject: REQ0722461 Completed - AIX Account Created
+
+Hello,
+
+Your request has been completed.
+
+The following AIX account was created successfully:
+
+User ID: shivanib
+Name: Shivani8
+
+Servers:
+- txedip11
+- txedit11
+
+The supplied SSH public key has been installed.
+
+Please test your access and let us know if you encounter any issues.
+
+Thank you,
+Enterprise Linux / AIX Administration
