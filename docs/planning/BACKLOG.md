@@ -19,23 +19,27 @@
 - [x] Repository-aware playbook execution
 - [x] Automatic playbook discovery
 - [x] `pwr request`
+- [x] `pwr playbook show`
+- [x] Search playbooks
+- [x] Command metadata standard
+- [x] Auto-generated `pwr help`
+- [x] Auto-generated Markdown CLI reference
+- [x] Common task examples in help output
 
 - [ ] Nested commands
 - [ ] `pwr user`
 - [ ] `pwr backup`
 - [ ] `pwr restore`
-- [ ] `pwr docs`
+- [x] `pwr docs`
 - [ ] `pwr report`
-- [ ] `pwr playbook show`
-- [ ] Search playbooks
 - [ ] Execution history
 - [ ] Colorized output
 - [ ] Shell completion
-- [ ] Command metadata standard
-- [ ] Auto-generated `pwr help`
-- [ ] Auto-generated Markdown CLI reference
-- [ ] Common task examples in help output
 - [ ] Keep `pwr` and `abbey` command documentation aligned
+- [ ] Command metadata validation
+- [ ] Auto-generated shell completion
+- [ ] Command-specific help (`pwr <command> help`)
+- [ ] Router generation/validation from CLI metadata
 
 ---
 
@@ -59,6 +63,7 @@ Remaining
 - [ ] PowerPoint generation
 - [ ] Email delivery
 
+---
 
 ### Request Lifecycle
 
@@ -83,7 +88,7 @@ Remaining
 - [ ] Review guide documents
 - [ ] Review reference documents
 - [ ] Standardize documentation with Abbey Root
-- [ ] Expand generated documentation
+- [x] Expand generated documentation
 - [ ] Documentation quality validation
 
 ---
@@ -96,6 +101,7 @@ Remaining
 - [ ] PDF reports
 - [ ] Workflow summaries
 - [ ] Execution summaries
+
 ### Reporting Framework
 
 - [ ] Generic report data model
@@ -125,6 +131,16 @@ Remaining
 ---
 
 ## Medium Priority
+
+### CLI Framework
+
+- [ ] Move CLI metadata engine into reusable library
+- [ ] Metadata-driven command routing
+- [ ] Metadata-driven help for subcommands
+- [ ] Metadata validation during build
+- [ ] Shared CLI framework with Abbey Root
+
+---
 
 ### Backup Operations
 
