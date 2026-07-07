@@ -69,6 +69,27 @@ Manage operational work instead of individual playbooks.
 - Validation
 - Completion reporting
 
+## Service Review Automation
+
+In Progress
+
+Objective:
+
+Automate the monthly Service Review process by collecting infrastructure data, generating executive reports, and producing documentation.
+
+Current implementations:
+
+- HMC CPU Capacity
+- Pure Storage Capacity
+
+Planned:
+
+- Pure1 historical reporting
+- Replication lag reporting
+- Veeam reporting
+- Operational summary generation
+- Presentation generation
+
 ---
 
 ## Phase 4 - Operational Workflows

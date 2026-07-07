@@ -39,6 +39,27 @@
 
 ---
 
+### Service Review
+
+- [x] HMC performance import
+- [x] HMC normalization
+- [x] CPU capacity reporting
+- [x] Pure CLI collection
+- [x] Pure normalization
+- [x] Pure capacity widget
+- [x] Service Review preparation command
+
+Remaining
+
+- [ ] Pure1 API collector
+- [ ] Replication lag reporting
+- [ ] HMC automatic collection
+- [ ] Pure automatic API collection
+- [ ] Service Review playbook
+- [ ] PowerPoint generation
+- [ ] Email delivery
+
+
 ### Request Lifecycle
 
 - [x] `pwr request`

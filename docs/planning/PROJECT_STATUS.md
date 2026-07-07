@@ -47,6 +47,25 @@ Completed:
 - Initial Workflow Engine integration with the Add User workflow
 - Production user provisioning successfully validated
 
+## Completed
+
+### Service Review Framework (Initial)
+
+Power Infrastructure now includes the initial implementation of a reusable Service Review reporting framework.
+
+Implemented capabilities include:
+
+- HMC performance collection workflow
+- HMC performance normalization
+- CPU capacity report generation
+- Pure Storage CLI collection
+- Pure Storage normalization
+- Pure Storage capacity widget
+- Generated report index
+- Service Review preparation workflow
+
+The framework separates data acquisition, normalization, reporting, and documentation into reusable stages that can be extended to additional infrastructure technologies.
+
 ## Toolkit
 
 Completed:
