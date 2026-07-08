@@ -292,6 +292,22 @@ pwr playbook add-user --check
 
 ## Workflow
 
+### `pwr session`
+
+Start a Power Infrastructure work session.
+
+**Usage**
+
+```text
+pwr session
+```
+
+**Examples**
+
+```text
+pwr session
+```
+
 ### `pwr workflow`
 
 Run Workflow Engine commands.
