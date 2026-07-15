@@ -1,0 +1,825 @@
+[1mdiff --git a/docs/design/architecture.md b/docs/design/architecture.md[m
+[1mindex e69de29..5215a43 100644[m
+[1m--- a/docs/design/architecture.md[m
+[1m+++ b/docs/design/architecture.md[m
+[36m@@ -0,0 +1,151 @@[m
+[32m+[m[32m# Power Infrastructure Architecture[m
+[32m+[m
+[32m+[m[32m## Purpose[m
+[32m+[m
+[32m+[m[32mPower Infrastructure is an engineering platform for managing IBM Power environments.[m
+[32m+[m
+[32m+[m[32mThe project combines inventory, validation, documentation, reporting, and automation into a repeatable engineering framework.[m
+[32m+[m
+[32m+[m[32mRather than building isolated automation scripts, Power Infrastructure provides reusable capabilities that support the complete operational lifecycle.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Architectural Goals[m
+[32m+[m
+[32m+[m[32mThe architecture is designed to:[m
+[32m+[m
+[32m+[m[32m- establish authoritative infrastructure inventory[m
+[32m+[m[32m- standardize operational validation[m
+[32m+[m[32m- generate documentation automatically[m
+[32m+[m[32m- provide reusable engineering workflows[m
+[32m+[m[32m- minimize manual operational effort[m
+[32m+[m[32m- improve operational consistency[m
+[32m+[m[32m- support enterprise change management[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Core Engineering Capabilities[m
+[32m+[m
+[32m+[m[32mThe project is organized around a small number of core capabilities.[m
+[32m+[m
+[32m+[m[32m## Inventory[m
+[32m+[m
+[32m+[m[32mInventory discovers and maintains information about the environment from authoritative sources.[m
+[32m+[m
+[32m+[m[32mExamples include:[m
+[32m+[m
+[32m+[m[32m- IBM HMC[m
+[32m+[m[32m- AIX[m
+[32m+[m[32m- VIOS[m
+[32m+[m[32m- Pure Storage[m
+[32m+[m[32m- Veeam[m
+[32m+[m[32m- project metadata[m
+[32m+[m
+[32m+[m[32mInventory answers:[m
+[32m+[m
+[32m+[m[32m> What exists?[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Operational Reviews[m
+[32m+[m
+[32m+[m[32mOperational Reviews evaluate the current operational state of infrastructure.[m
+[32m+[m
+[32m+[m[32mReviews are read-only.[m
+[32m+[m
+[32m+[m[32mExamples include:[m
+[32m+[m
+[32m+[m[32m- MQ[m
+[32m+[m[32m- filesystem[m
+[32m+[m[32m- AIX[m
+[32m+[m[32m- HMC[m
+[32m+[m[32m- VIOS[m
+[32m+[m[32m- Pure Storage[m
+[32m+[m[32m- backup[m
+[32m+[m
+[32m+[m[32mOperational Reviews answer:[m
+[32m+[m
+[32m+[m[32m> What is the current state?[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Workflow Engine[m
+[32m+[m
+[32m+[m[32mThe Workflow Engine performs validated operational changes.[m
+[32m+[m
+[32m+[m[32mExamples include:[m
+[32m+[m
+[32m+[m[32m- user provisioning[m
+[32m+[m[32m- user removal[m
+[32m+[m[32m- disaster recovery[m
+[32m+[m[32m- patching[m
+[32m+[m[32m- LPAR deployment[m
+[32m+[m[32m- LPAR decommissioning[m
+[32m+[m[32m- backup restoration[m
+[32m+[m
+[32m+[m[32mThe Workflow Engine answers:[m
+[32m+[m
+[32m+[m[32m> How can the environment be changed safely?[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Documentation[m
+[32m+[m
+[32m+[m[32mDocumentation is generated whenever practical.[m
+[32m+[m
+[32m+[m[32mExamples include:[m
+[32m+[m
+[32m+[m[32m- environment summaries[m
+[32m+[m[32m- inventory reports[m
+[32m+[m[32m- disaster recovery documentation[m
+[32m+[m[32m- operational review reports[m
+[32m+[m[32m- change documentation[m
+[32m+[m
+[32m+[m[32mDocumentation answers:[m
+[32m+[m
+[32m+[m[32m> How do we preserve engineering knowledge?[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Reporting[m
+[32m+[m
+[32m+[m[32mReporting communicates engineering information.[m
+[32m+[m
+[32m+[m[32mExamples include:[m
+[32m+[m
+[32m+[m[32m- capacity reports[m
+[32m+[m[32m- monthly operational reports[m
+[32m+[m[32m- health summaries[m
+[32m+[m[32m- trend analysis[m
+[32m+[m[32m- executive summaries[m
+[32m+[m
+[32m+[m[32mReporting answers:[m
+[32m+[m
+[32m+[m[32m> What information should engineers and management receive?[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m# Capability Relationships[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32m                     Authoritative Sources[m
+[32m+[m[32m                              |[m
+[32m+[m[32m                              v[m
+[32m+[m[32m                        Inventory Collection[m
+[32m+[m[32m                              |[m
+[32m+[m[32m                     Inventory Validation[m
+[32m+[m[32m                              |[m
+[32m+[m[32m                              v[m
+[32m+[m[32m                   Normalized Inventory Model[m
+[32m+[m[32m                      |                  |[m
+[32m+[m[32m                      |                  |[m
+[32m+[m[32m                      v                  v[m
+[32m+[m[32m            Operational Reviews    Workflow Engine[m
+[32m+[m[32m                      |                  |[m
+[32m+[m[32m                      +---------+--------+[m
+[32m+[m[32m                                |[m
+[32m+[m[32m                                v[m
+[32m+[m[32m                    Generated Documentation[m
+[32m+[m[32m                                |[m
+[32m+[m[32m                                v[m
+[32m+[m[32m                           Reporting[m
+[1mdiff --git a/docs/design/service_review_framework.md b/docs/design/service_review_framework.md[m
+[1mdeleted file mode 100644[m
+[1mindex 31f2e5f..0000000[m
+[1m--- a/docs/design/service_review_framework.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,22 +0,0 @@[m
+[31m-Service Review[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Prepare[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Collect[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Import[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Normalize[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Generate Reports[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Generate Documentation[m
+[31m-        │[m
+[31m-        ▼[m
+[31m-Publish[m
+[1mdiff --git a/docs/generated/CLI_REFERENCE.md b/docs/generated/CLI_REFERENCE.md[m
+[1mindex cffb301..ca27428 100644[m
+[1m--- a/docs/generated/CLI_REFERENCE.md[m
+[1m+++ b/docs/generated/CLI_REFERENCE.md[m
+[36m@@ -292,6 +292,54 @@[m [mpwr playbook add-user --check[m
+ [m
+ ## Workflow[m
+ [m
+[32m+[m[32m### `pwr health`[m
+[32m+[m
+[32m+[m[32mRun operational health assessments.[m
+[32m+[m
+[32m+[m[32m**Usage**[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32mpwr health <technology> <target>[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m**Subcommands**[m
+[32m+[m
+[32m+[m[32m- `aix` - Run an AIX health assessment.[m
+[32m+[m[32m  - `pwr health aix <host>`[m
+[32m+[m[32m- `mq` - Run an MQ health assessment.[m
+[32m+[m[32m  - `pwr health mq <host> <queue-manager>`[m
+[32m+[m
+[32m+[m[32m**Examples**[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32mpwr health aix txwcsp11[m
+[32m+[m[32mpwr health mq txwcsp11 TXWCSP11[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m### `pwr review`[m
+[32m+[m
+[32m+[m[32mRun operational reviews.[m
+[32m+[m
+[32m+[m[32m**Usage**[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32mpwr review <technology>[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m**Subcommands**[m
+[32m+[m
+[32m+[m[32m- `aix` - Run an AIX operational review.[m
+[32m+[m[32m  - `pwr review aix`[m
+[32m+[m[32m- `mq` - Run an MQ operational review.[m
+[32m+[m[32m  - `pwr review mq`[m
+[32m+[m
+[32m+[m[32m**Examples**[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32mpwr review aix txwcsp11[m
+[32m+[m[32mpwr review mq txwcsp11 TXWCSP11[m
+[32m+[m[32m```[m
+[32m+[m
+ ### `pwr session`[m
+ [m
+ Start a Power Infrastructure work session.[m
+[36m@@ -302,10 +350,17 @@[m [mStart a Power Infrastructure work session.[m
+ pwr session[m
+ ```[m
+ [m
+[32m+[m[32m**Subcommands**[m
+[32m+[m
+[32m+[m[32m- `context` - Generate an AI-ready repository session snapshot.[m
+[32m+[m[32m  - `pwr session context [--stdout | --output FILE]`[m
+[32m+[m
+ **Examples**[m
+ [m
+ ```text[m
+ pwr session[m
+[32m+[m[32mpwr session context[m
+[32m+[m[32mpwr session context --stdout[m
+ ```[m
+ [m
+ ### `pwr workflow`[m
+[1mdiff --git a/docs/planning/BACKLOG.md b/docs/planning/BACKLOG.md[m
+[1mindex 077f4b8..0edc076 100644[m
+[1m--- a/docs/planning/BACKLOG.md[m
+[1m+++ b/docs/planning/BACKLOG.md[m
+[36m@@ -2,11 +2,87 @@[m
+ [m
+ ## High Priority[m
+ [m
+[32m+[m[32m### Operational Review Framework[m
+[32m+[m
+[32m+[m[32m- [x] `pwr review`[m
+[32m+[m[32m- [x] Multi-host Operational Reviews[m
+[32m+[m[32m- [ ] Fleet operational summaries[m
+[32m+[m[32m- [ ] Fleet operational reports[m
+[32m+[m[32m- [ ] Health dashboards[m
+[32m+[m[32m- [ ] Historical health results[m
+[32m+[m[32m- [ ] Health trend analysis[m
+[32m+[m[32m- [ ] Review scoring[m
+[32m+[m[32m- [ ] Review recommendations[m
+[32m+[m[32m- [ ] Automatic review discovery[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m### Operational Reviews[m
+[32m+[m
+[32m+[m[32m#### AIX[m
+[32m+[m
+[32m+[m[32mCompleted[m
+[32m+[m
+[32m+[m[32m- [x] Operating System[m
+[32m+[m[32m- [x] Paging Space[m
+[32m+[m[32m- [x] Memory[m
+[32m+[m[32m- [x] CPU[m
+[32m+[m[32m- [x] Network[m
+[32m+[m[32m- [x] Bootlist[m
+[32m+[m[32m- [x] Boot Device validation[m
+[32m+[m[32m- [x] Dump Device validation[m
+[32m+[m[32m- [x] Disk Path validation[m
+[32m+[m[32m- [x] Filesystem Capacity[m
+[32m+[m[32m- [x] errpt severity analysis[m
+[32m+[m
+[32m+[m[32mRemaining[m
+[32m+[m
+[32m+[m[32m- [ ] Filesystem growth history[m
+[32m+[m[32m- [ ] SEA health[m
+[32m+[m[32m- [ ] Performance baseline[m
+[32m+[m[32m- [ ] Service inventory[m
+[32m+[m[32m- [ ] Device health[m
+[32m+[m[32m- [ ] HACMP/PowerHA awareness[m
+[32m+[m[32m- [ ] Alternate disk awareness[m
+[32m+[m
+[32m+[m[32m#### MQ[m
+[32m+[m
+[32m+[m[32mCompleted[m
+[32m+[m
+[32m+[m[32m- [x] Queue Manager[m
+[32m+[m[32m- [x] Listener status[m
+[32m+[m[32m- [x] Channel status[m
+[32m+[m[32m- [x] Queue review[m
+[32m+[m[32m- [x] FDC review[m
+[32m+[m[32m- [x] MQ error log review[m
+[32m+[m[32m- [x] AIX errpt integration[m
+[32m+[m
+[32m+[m[32mRemaining[m
+[32m+[m
+[32m+[m[32m- [ ] Queue depth thresholds[m
+[32m+[m[32m- [ ] Dead-letter queue review[m
+[32m+[m[32m- [ ] Channel history[m
+[32m+[m[32m- [ ] Authority review[m
+[32m+[m[32m- [ ] Queue manager configuration review[m
+[32m+[m
+[32m+[m[32m#### Future Reviews[m
+[32m+[m
+[32m+[m[32m- [ ] Pure Storage[m
+[32m+[m[32m- [ ] VIOS[m
+[32m+[m[32m- [ ] HMC[m
+[32m+[m[32m- [ ] Veeam[m
+[32m+[m[32m- [ ] Oracle[m
+[32m+[m[32m- [ ] Linux[m
+[32m+[m[32m- [ ] NIM[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+ ### Workflow Framework[m
+ [m
+ - [ ] Generic workflow reporting[m
+ - [ ] Standard execution result object[m
+ - [ ] Standard workflow metadata[m
+[32m+[m[32m- [ ] Shared evidence model[m
+ - [ ] Markdown execution reports[m
+ - [ ] Capture operator, execution time, validation results, and execution results[m
+ - [ ] Store generated artifacts inside the request workspace[m
+[36m@@ -16,6 +92,8 @@[m
+ [m
+ ### Power CLI[m
+ [m
+[32m+[m[32mCompleted[m
+[32m+[m
+ - [x] Repository-aware playbook execution[m
+ - [x] Automatic playbook discovery[m
+ - [x] `pwr request`[m
+[36m@@ -25,12 +103,16 @@[m
+ - [x] Auto-generated `pwr help`[m
+ - [x] Auto-generated Markdown CLI reference[m
+ - [x] Common task examples in help output[m
+[32m+[m[32m- [x] `pwr docs`[m
+[32m+[m[32m- [x] `pwr review`[m
+[32m+[m
+[32m+[m[32mRemaining[m
+ [m
+ - [ ] Nested commands[m
+[32m+[m[32m- [ ] `pwr review all`[m
+ - [ ] `pwr user`[m
+ - [ ] `pwr backup`[m
+ - [ ] `pwr restore`[m
+[31m-- [x] `pwr docs`[m
+ - [ ] `pwr report`[m
+ - [ ] Execution history[m
+ - [ ] Colorized output[m
+[36m@@ -45,6 +127,8 @@[m
+ [m
+ ### Service Review[m
+ [m
+[32m+[m[32mCompleted[m
+[32m+[m
+ - [x] HMC performance import[m
+ - [x] HMC normalization[m
+ - [x] CPU capacity reporting[m
+[36m@@ -67,7 +151,12 @@[m [mRemaining[m
+ [m
+ ### Request Lifecycle[m
+ [m
+[32m+[m[32mCompleted[m
+[32m+[m
+ - [x] `pwr request`[m
+[32m+[m
+[32m+[m[32mRemaining[m
+[32m+[m
+ - [ ] Request metadata (`request.yml`)[m
+ - [ ] Request status tracking[m
+ - [ ] Open / In Progress / Completed / Archived[m
+[36m@@ -96,22 +185,30 @@[m [mRemaining[m
+ ### Reporting Framework[m
+ [m
+ - [ ] Standard report role[m
+[31m-- [ ] Markdown reports[m
+[31m-- [ ] HTML reports[m
+[31m-- [ ] PDF reports[m
+[31m-- [ ] Workflow summaries[m
+[31m-- [ ] Execution summaries[m
+[31m-[m
+[31m-### Reporting Framework[m
+[31m-[m
+ - [ ] Generic report data model[m
+ - [ ] Markdown renderer[m
+[31m-- [ ] CSV renderer[m
+ - [ ] HTML renderer[m
+[32m+[m[32m- [ ] CSV renderer[m
+ - [ ] JSON renderer[m
+ - [ ] PDF renderer[m
+[31m-- [ ] Email delivery[m
+[32m+[m[32m- [ ] Workflow summaries[m
+[32m+[m[32m- [ ] Execution summaries[m
+ - [ ] Documentation publishing[m
+[32m+[m[32m- [ ] Email delivery[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m### Patch Management[m
+[32m+[m
+[32m+[m[32m- [ ] Patch Readiness workflow[m
+[32m+[m[32m- [ ] Reuse Operational Review evidence[m
+[32m+[m[32m- [ ] Alternate disk validation[m
+[32m+[m[32m- [ ] bosboot validation[m
+[32m+[m[32m- [ ] Dump device remediation[m
+[32m+[m[32m- [ ] Alternate disk deployment[m
+[32m+[m[32m- [ ] Rollback planning[m
+[32m+[m[32m- [ ] Reporting[m
+[32m+[m[32m- [ ] Post-patch validation[m
+ [m
+ ---[m
+ [m
+[36m@@ -159,6 +256,7 @@[m [mRemaining[m
+ - [ ] Maintenance groups[m
+ - [ ] Environment metadata[m
+ - [ ] Historical inventory[m
+[32m+[m[32m- [ ] Configuration drift detection[m
+ [m
+ ---[m
+ [m
+[36m@@ -193,15 +291,6 @@[m [mRemaining[m
+ [m
+ ---[m
+ [m
+[31m-### Patch Management[m
+[31m-[m
+[31m-- [ ] Alternate disk validation[m
+[31m-- [ ] Alternate disk deployment[m
+[31m-- [ ] Rollback planning[m
+[31m-- [ ] Reporting[m
+[31m-[m
+[31m----[m
+[31m-[m
+ ### Platform Upgrades[m
+ [m
+ - [ ] AIX 7.3 automation[m
+[1mdiff --git a/docs/planning/NEXT.md b/docs/planning/NEXT.md[m
+[1mindex 082238f..d1e330d 100644[m
+[1m--- a/docs/planning/NEXT.md[m
+[1m+++ b/docs/planning/NEXT.md[m
+[36m@@ -1,80 +1,25 @@[m
+ # Next Session[m
+ [m
+[31m-## Primary Goal[m
+[32m+[m[32m## Primary Objective[m
+ [m
+[31m-Continue evolving Power Infrastructure into a reusable engineering platform by standardizing the command-line framework and continuing Workflow Engine development.[m
+[32m+[m[32mBegin the Pure Storage operational review framework.[m
+ [m
+[31m----[m
+[32m+[m[32m## Goals[m
+ [m
+[31m-## Priority 1 — CLI Standardization[m
+[32m+[m[32m- Design Pure health workflow using the same framework as AIX.[m
+[32m+[m[32m- Identify reusable Pure collection roles.[m
+[32m+[m[32m- Define initial Pure health checks.[m
+[32m+[m[32m- Generate summary, report, and JSON artifacts.[m
+[32m+[m[32m- Keep the workflow compatible with future fleet reviews.[m
+ [m
+[31m-Compare the Power Infrastructure `pwr` CLI with the Abbey Root `abbey` CLI.[m
+[32m+[m[32m## Secondary Objectives[m
+ [m
+[31m-Objectives:[m
+[31m-[m
+[31m-* Compare command structure.[m
+[31m-* Compare command terminology.[m
+[31m-* Identify missing capabilities in each project.[m
+[31m-* Standardize command naming where practical.[m
+[31m-* Evaluate opportunities for a shared CLI framework.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-## Priority 2 — Request Lifecycle[m
+[31m-[m
+[31m-Continue expanding request-driven operations.[m
+[31m-[m
+[31m-Objectives:[m
+[31m-[m
+[31m-* Implement `request.yml`.[m
+[31m-* Add request metadata.[m
+[31m-* Implement request status management.[m
+[31m-* Begin request lifecycle reporting.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-## Priority 3 — Workflow Engine[m
+[31m-[m
+[31m-Continue developing the generic Workflow Engine.[m
+[31m-[m
+[31m-Objectives:[m
+[31m-[m
+[31m-* Continue workflow validation.[m
+[31m-* Standardize workflow metadata.[m
+[31m-* Continue generic workflow reporting.[m
+[31m-* Expand reusable workflow components.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-## Priority 4 — User Administration[m
+[31m-[m
+[31m-Continue using User Administration as the Workflow Engine reference implementation.[m
+[31m-[m
+[31m-Objectives:[m
+[31m-[m
+[31m-* Complete user removal workflow.[m
+[31m-* Implement `aix_user_validate_remove`.[m
+[31m-* Continue improving idempotency.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-## Priority 5 — Documentation[m
+[31m-[m
+[31m-Continue generating documentation rather than maintaining it manually.[m
+[31m-[m
+[31m-Objectives:[m
+[31m-[m
+[31m-* Review generated documentation.[m
+[31m-* Continue expanding generated documentation.[m
+[31m-* Keep CLI documentation synchronized with metadata.[m
+[31m-[m
+[31m----[m
+[32m+[m[32m- Continue improving fleet operational summaries.[m
+[32m+[m[32m- Add richer aggregation to AIX fleet reports.[m
+[32m+[m[32m- Review opportunities to reuse workflow components between AIX and Pure.[m
+ [m
+ ## Notes[m
+ [m
+[31m-Today's work introduced a metadata-driven CLI framework centered around `config/cli/cli.yml` and `scripts/power_cli.py`.[m
+[31m-[m
+[31m-Future CLI enhancements—including help generation, documentation, shell completion, aliases, and command validation—should continue to use this metadata as the single source of truth.[m
+[32m+[m[32mThe AIX operational review framework is now stable enough to serve as the reference implementation for future technologies. Continue extending the shared framework rather than creating technology-specific implementations where practical.[m
+ [m
+[31m-The comparison between Abbey Root and Power Infrastructure should focus on identifying reusable framework components rather than simply matching command lists.[m
+ [m
+[1mdiff --git a/docs/planning/PROJECT_STATUS.md b/docs/planning/PROJECT_STATUS.md[m
+[1mindex ba7f92e..d01a179 100644[m
+[1m--- a/docs/planning/PROJECT_STATUS.md[m
+[1m+++ b/docs/planning/PROJECT_STATUS.md[m
+[36m@@ -1,186 +1,56 @@[m
+[31m-# Power Infrastructure Project Status[m
+[31m-[m
+[31m-**Last Updated:** 2026-07-07[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Current Phase[m
+[31m-[m
+[31m-## Engineering Platform[m
+[31m-[m
+[31m-The project has moved beyond individual automation playbooks and is now focused on building a reusable engineering platform for IBM Power infrastructure.[m
+[31m-[m
+[31m-The primary emphasis is developing common workflows, reusable roles, a generic Workflow Engine, request-driven operations, a metadata-driven command-line interface, and automatically generated documentation.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Overall Status[m
+[31m-[m
+[31m-Current focus:[m
+[31m-[m
+[31m-* Workflow Engine implementation[m
+[31m-* Request-driven operational workflows[m
+[31m-* Reusable engineering framework[m
+[31m-* Validation-first automation[m
+[31m-* Enterprise toolkit (`pwr`)[m
+[31m-* Metadata-driven CLI framework[m
+[31m-* Generated documentation[m
+[31m-[m
+[31m-The architectural foundation is now stable enough that new operational workflows and CLI capabilities can be built from common components rather than implemented independently.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Recent Accomplishments[m
+[31m-[m
+[31m-## Workflow Framework[m
+[31m-[m
+[31m-Completed:[m
+[31m-[m
+[31m-* Common user preparation framework[m
+[31m-* Workflow-specific preparation stages[m
+[31m-* Request-driven user provisioning[m
+[31m-* Initial user removal workflow[m
+[31m-* Request workspace framework (`pwr request`)[m
+[31m-* Workflow Engine architecture[m
+[31m-* Initial `workflow_prepare` role[m
+[31m-* Standard `workflow_context`[m
+[31m-* Workflow workspace creation[m
+[31m-* Initial Workflow Engine integration with the Add User workflow[m
+[31m-* Production user provisioning successfully validated[m
+[31m-[m
+[31m-## Service Review Framework[m
+[31m-[m
+[31m-Power Infrastructure now includes the initial implementation of a reusable Service Review reporting framework.[m
+[31m-[m
+[31m-Implemented capabilities include:[m
+[31m-[m
+[31m-* HMC performance collection workflow[m
+[31m-* HMC performance normalization[m
+[31m-* CPU capacity report generation[m
+[31m-* Pure Storage CLI collection[m
+[31m-* Pure Storage normalization[m
+[31m-* Pure Storage capacity widget[m
+[31m-* Generated report index[m
+[31m-* Service Review preparation workflow[m
+[31m-[m
+[31m-The framework separates data acquisition, normalization, reporting, and documentation into reusable stages that can be extended to additional infrastructure technologies.[m
+[31m-[m
+[31m-## Toolkit[m
+[31m-[m
+[31m-Completed:[m
+[31m-[m
+[31m-* Repository-aware `pwr playbook`[m
+[31m-* Automatic playbook discovery[m
+[31m-* Playbook inspection (`pwr playbook show`)[m
+[31m-* Playbook search (`pwr playbook search`)[m
+[31m-* `pwr request`[m
+[31m-* `pwr doctor`[m
+[31m-* Metadata-driven `pwr help`[m
+[31m-* Generated CLI reference documentation[m
+[31m-* `pwr docs cli`[m
+[31m-* Enhanced Git status commands[m
+[31m-* Bitbucket integration completed[m
+[31m-[m
+[31m-## CLI Framework[m
+[31m-[m
+[31m-The `pwr` CLI has begun transitioning from a collection of command wrappers into a metadata-driven framework.[m
+[31m-[m
+[31m-Implemented capabilities include:[m
+[31m-[m
+[31m-* Central CLI metadata (`config/cli/cli.yml`)[m
+[31m-* Metadata-driven help generation[m
+[31m-* Automatically generated Markdown CLI reference[m
+[31m-* Command categories[m
+[31m-* Command aliases[m
+[31m-* Subcommand metadata[m
+[31m-* Build integration for generated CLI documentation[m
+[31m-[m
+[31m-The CLI now uses a single source of truth for command metadata, reducing duplicated documentation and establishing the foundation for future capabilities such as shell completion, metadata validation, and command-specific help.[m
+[31m-[m
+[31m-## Operational Roles[m
+[31m-[m
+[31m-Completed:[m
+[31m-[m
+[31m-* Common validation framework[m
+[31m-* Shared preparation framework[m
+[31m-* User creation[m
+[31m-* SSH key deployment[m
+[31m-* User verification[m
+[31m-* Initial user removal[m
+[31m-* Communications generation[m
+[31m-[m
+[31m-## Workflow Engine[m
+[31m-[m
+[31m-The Workflow Engine continued to mature into the standard execution framework for Power Infrastructure.[m
+[31m-[m
+[31m-Completed:[m
+[31m-[m
+[31m-* Added support for both request-driven and ad-hoc workflows[m
+[31m-* Introduced workflow workspaces under `docs/generated/`[m
+[31m-* Added reusable `workflow_prepare` role[m
+[31m-* Began reusable workflow delivery architecture[m
+[31m-[m
+[31m-The Workflow Engine is now capable of supporting both operational change workflows and engineering/reporting workflows using a common execution model.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Current Priorities[m
+[31m-[m
+[31m-1. Continue implementing the Workflow Engine.[m
+[31m-2. Continue Request Lifecycle implementation.[m
+[31m-3. Complete the User Administration framework.[m
+[31m-4. Standardize the CLI framework with Abbey Root.[m
+[31m-5. Expand metadata-driven documentation generation.[m
+[31m-6. Continue expanding operational workflows.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Current Risks[m
+[31m-[m
+[31m-* Reporting framework is not yet fully standardized.[m
+[31m-* Some operational workflows are not yet fully idempotent.[m
+[31m-* Request lifecycle management is still in its initial implementation.[m
+[31m-* The Workflow Engine continues to use the User Administration workflow as its reference implementation.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Next Major Goal[m
+[31m-[m
+[31m-Continue implementing the Workflow Engine while expanding the metadata-driven engineering platform.[m
+[31m-[m
+[31m-Immediate objectives:[m
+[31m-[m
+[31m-* Standardize workflow validation.[m
+[31m-* Implement `workflow_validate`.[m
+[31m-* Define a standard workflow result object.[m
+[31m-* Expand generic workflow reporting.[m
+[31m-* Complete Request Lifecycle metadata and state management.[m
+[31m-* Continue aligning the `pwr` and `abbey` command-line frameworks.[m
+[31m-[m
+[31m-The User Administration workflow will remain the reference implementation before the architecture is applied to backup, restore, inventory, patch management, disaster recovery, and additional operational domains.[m
+[31m-[m
+[31m----[m
+[31m-[m
+[31m-# Related Documents[m
+[31m-[m
+[31m-## Planning[m
+[31m-[m
+[31m-* `planning/VISION.md`[m
+[31m-* `planning/NEXT.md`[m
+[31m-* `planning/BACKLOG.md`[m
+[31m-* `planning/ROADMAP.md`[m
+[31m-* `planning/MILESTONES.md`[m
+[31m-[m
+[31m-## Design[m
+[31m-[m
+[31m-* `design/philosophy.md`[m
+[31m-* `design/architecture.md`[m
+[31m-* `design/role_framework.md`[m
+[31m-* `design/workflow_engine.md`[m
+[31m-* `design/user_workflow_mapping.md`[m
+[31m-[m
+[31m-## Generated Documentation[m
+[31m-[m
+[31m-* `generated/environment_summary.md`[m
+[31m-* `generated/CLI_REFERENCE.md`[m
+[31m-[m
+[32m+[m[32m## Operational Health Framework[m
+[32m+[m
+[32m+[m[32mThe Operational Health framework continued to mature into a reusable operational review platform built on the standard Workflow Engine.[m
+[32m+[m
+[32m+[m[32mRather than creating standalone diagnostic scripts, Operational Health workflows follow the common execution lifecycle:[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32mPrepare[m
+[32m+[m[32m↓[m
+[32m+[m[32mValidate[m
+[32m+[m[32m↓[m
+[32m+[m[32mCollect[m
+[32m+[m[32m↓[m
+[32m+[m[32mEvaluate[m
+[32m+[m[32m↓[m
+[32m+[m[32mQuick View[m
+[32m+[m[32m↓[m
+[32m+[m[32mReport[m
+[32m+[m[32m↓[m
+[32m+[m[32mStructured Results[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mRecent enhancements include:[m
+[32m+[m
+[32m+[m[32m* Modular evidence collection roles[m
+[32m+[m[32m* Modular evaluation roles[m
+[32m+[m[32m* Host-specific artifact workspaces[m
+[32m+[m[32m* Fleet operational review support[m
+[32m+[m[32m* Fleet summary generation[m
+[32m+[m[32m* Standardized Markdown reports[m
+[32m+[m[32m* Standardized JSON results[m
+[32m+[m[32m* Generic quick-view summaries[m
+[32m+[m
+[32m+[m[32mCurrent AIX operational review coverage includes:[m
+[32m+[m
+[32m+[m[32m* Operating system validation[m
+[32m+[m[32m* NTP validation[m
+[32m+[m[32m* Paging space utilization[m
+[32m+[m[32m* Memory utilization summary[m
+[32m+[m[32m* CPU utilization summary[m
+[32m+[m[32m* Network validation[m
+[32m+[m[32m* Bootlist validation[m
+[32m+[m[32m* Boot device validation[m
+[32m+[m[32m* Dump device validation[m
+[32m+[m[32m* Disk path validation[m
+[32m+[m[32m* Filesystem capacity[m
+[32m+[m[32m* AIX error report analysis[m
+[32m+[m
+[32m+[m[32mReference implementations currently include:[m
+[32m+[m
+[32m+[m[32m* MQ Operational Health[m
+[32m+[m[32m* AIX Operational Health[m
+[32m+[m
+[32m+[m[32mThe framework now supports both single-host operational reviews and inventory group reviews using the same workflow architecture. Each reviewed host generates independent artifacts which can then be aggregated into fleet-level operational summaries.[m
+[32m+[m
+[32m+[m[32mThis architecture establishes the foundation for future Operational Health workflows covering Pure Storage, VIOS, HMC, Oracle, Veeam, networking, and additional infrastructure technologies.[m
+[1mdiff --git a/docs/planning/ROADMAP.md b/docs/planning/ROADMAP.md[m
+[1mindex 556caf1..dbbc263 100644[m
+[1m--- a/docs/planning/ROADMAP.md[m
+[1m+++ b/docs/planning/ROADMAP.md[m
+[36m@@ -109,7 +109,7 @@[m [mPlanned:[m
+ - Restore verification[m
+ - Backup reporting[m
+ [m
+[31m-### Environment Operations[m
+[32m+[m[32m### Operational Health[m
+ [m
+ - Health validation[m
+ - Operational readiness[m

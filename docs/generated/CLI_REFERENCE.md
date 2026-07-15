@@ -292,6 +292,54 @@ pwr playbook add-user --check
 
 ## Workflow
 
+### `pwr health`
+
+Run operational health assessments.
+
+**Usage**
+
+```text
+pwr health <technology> <target>
+```
+
+**Subcommands**
+
+- `aix` - Run an AIX health assessment.
+  - `pwr health aix <host>`
+- `mq` - Run an MQ health assessment.
+  - `pwr health mq <host> <queue-manager>`
+
+**Examples**
+
+```text
+pwr health aix txwcsp11
+pwr health mq txwcsp11 TXWCSP11
+```
+
+### `pwr review`
+
+Run operational reviews.
+
+**Usage**
+
+```text
+pwr review <technology>
+```
+
+**Subcommands**
+
+- `aix` - Run an AIX operational review.
+  - `pwr review aix`
+- `mq` - Run an MQ operational review.
+  - `pwr review mq`
+
+**Examples**
+
+```text
+pwr review aix txwcsp11
+pwr review mq txwcsp11 TXWCSP11
+```
+
 ### `pwr session`
 
 Start a Power Infrastructure work session.
@@ -302,10 +350,17 @@ Start a Power Infrastructure work session.
 pwr session
 ```
 
+**Subcommands**
+
+- `context` - Generate an AI-ready repository session snapshot.
+  - `pwr session context [--stdout | --output FILE]`
+
 **Examples**
 
 ```text
 pwr session
+pwr session context
+pwr session context --stdout
 ```
 
 ### `pwr workflow`

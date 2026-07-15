@@ -2,11 +2,87 @@
 
 ## High Priority
 
+### Operational Review Framework
+
+- [x] `pwr review`
+- [x] Multi-host Operational Reviews
+- [ ] Fleet operational summaries
+- [ ] Fleet operational reports
+- [ ] Health dashboards
+- [ ] Historical health results
+- [ ] Health trend analysis
+- [ ] Review scoring
+- [ ] Review recommendations
+- [ ] Automatic review discovery
+
+---
+
+### Operational Reviews
+
+#### AIX
+
+Completed
+
+- [x] Operating System
+- [x] Paging Space
+- [x] Memory
+- [x] CPU
+- [x] Network
+- [x] Bootlist
+- [x] Boot Device validation
+- [x] Dump Device validation
+- [x] Disk Path validation
+- [x] Filesystem Capacity
+- [x] errpt severity analysis
+
+Remaining
+
+- [ ] Filesystem growth history
+- [ ] SEA health
+- [ ] Performance baseline
+- [ ] Service inventory
+- [ ] Device health
+- [ ] HACMP/PowerHA awareness
+- [ ] Alternate disk awareness
+
+#### MQ
+
+Completed
+
+- [x] Queue Manager
+- [x] Listener status
+- [x] Channel status
+- [x] Queue review
+- [x] FDC review
+- [x] MQ error log review
+- [x] AIX errpt integration
+
+Remaining
+
+- [ ] Queue depth thresholds
+- [ ] Dead-letter queue review
+- [ ] Channel history
+- [ ] Authority review
+- [ ] Queue manager configuration review
+
+#### Future Reviews
+
+- [ ] Pure Storage
+- [ ] VIOS
+- [ ] HMC
+- [ ] Veeam
+- [ ] Oracle
+- [ ] Linux
+- [ ] NIM
+
+---
+
 ### Workflow Framework
 
 - [ ] Generic workflow reporting
 - [ ] Standard execution result object
 - [ ] Standard workflow metadata
+- [ ] Shared evidence model
 - [ ] Markdown execution reports
 - [ ] Capture operator, execution time, validation results, and execution results
 - [ ] Store generated artifacts inside the request workspace
@@ -15,6 +91,8 @@
 ---
 
 ### Power CLI
+
+Completed
 
 - [x] Repository-aware playbook execution
 - [x] Automatic playbook discovery
@@ -25,12 +103,16 @@
 - [x] Auto-generated `pwr help`
 - [x] Auto-generated Markdown CLI reference
 - [x] Common task examples in help output
+- [x] `pwr docs`
+- [x] `pwr review`
+
+Remaining
 
 - [ ] Nested commands
+- [ ] `pwr review all`
 - [ ] `pwr user`
 - [ ] `pwr backup`
 - [ ] `pwr restore`
-- [x] `pwr docs`
 - [ ] `pwr report`
 - [ ] Execution history
 - [ ] Colorized output
@@ -44,6 +126,8 @@
 ---
 
 ### Service Review
+
+Completed
 
 - [x] HMC performance import
 - [x] HMC normalization
@@ -67,7 +151,12 @@ Remaining
 
 ### Request Lifecycle
 
+Completed
+
 - [x] `pwr request`
+
+Remaining
+
 - [ ] Request metadata (`request.yml`)
 - [ ] Request status tracking
 - [ ] Open / In Progress / Completed / Archived
@@ -96,22 +185,30 @@ Remaining
 ### Reporting Framework
 
 - [ ] Standard report role
-- [ ] Markdown reports
-- [ ] HTML reports
-- [ ] PDF reports
-- [ ] Workflow summaries
-- [ ] Execution summaries
-
-### Reporting Framework
-
 - [ ] Generic report data model
 - [ ] Markdown renderer
-- [ ] CSV renderer
 - [ ] HTML renderer
+- [ ] CSV renderer
 - [ ] JSON renderer
 - [ ] PDF renderer
-- [ ] Email delivery
+- [ ] Workflow summaries
+- [ ] Execution summaries
 - [ ] Documentation publishing
+- [ ] Email delivery
+
+---
+
+### Patch Management
+
+- [ ] Patch Readiness workflow
+- [ ] Reuse Operational Review evidence
+- [ ] Alternate disk validation
+- [ ] bosboot validation
+- [ ] Dump device remediation
+- [ ] Alternate disk deployment
+- [ ] Rollback planning
+- [ ] Reporting
+- [ ] Post-patch validation
 
 ---
 
@@ -159,6 +256,7 @@ Remaining
 - [ ] Maintenance groups
 - [ ] Environment metadata
 - [ ] Historical inventory
+- [ ] Configuration drift detection
 
 ---
 
@@ -190,15 +288,6 @@ Remaining
 - [ ] Recovery planning
 - [ ] Deployment automation
 - [ ] Validation
-
----
-
-### Patch Management
-
-- [ ] Alternate disk validation
-- [ ] Alternate disk deployment
-- [ ] Rollback planning
-- [ ] Reporting
 
 ---
 

@@ -109,7 +109,7 @@ Planned:
 - Restore verification
 - Backup reporting
 
-### Environment Operations
+### Operational Health
 
 - Health validation
 - Operational readiness
