@@ -41,6 +41,7 @@ Planned capabilities:
 - Operational commands
 - Project health validation
 - Configuration management
+- Operational review framework
 
 ---
 
@@ -81,6 +82,7 @@ Current implementations:
 
 - HMC CPU Capacity
 - Pure Storage Capacity
+- Pure Storage Operational Review
 
 Planned:
 
@@ -89,6 +91,7 @@ Planned:
 - Veeam reporting
 - Operational summary generation
 - Presentation generation
+
 
 ---
 
@@ -111,9 +114,29 @@ Planned:
 
 ### Operational Health
 
-- Health validation
-- Operational readiness
-- Daily operational reporting
+Develop reusable operational reviews across enterprise infrastructure.
+
+Current implementations:
+
+- AIX
+- IBM MQ
+- Pure Storage
+
+Planned implementations:
+
+- VIOS
+- HMC
+- Veeam
+- Oracle
+- Linux
+- NIM
+
+Future capabilities:
+
+- Fleet operational summaries
+- Historical operational trends
+- Review scoring
+- Operational recommendations
 
 ---
 
@@ -209,9 +232,9 @@ Automatically generate documentation from the environment.
 
 # Long-Term Vision
 
-Power Infrastructure becomes the engineering platform for IBM Power administration.
+Power Infrastructure becomes the engineering platform for IBM Power and its supporting enterprise infrastructure.
 
-Every operational workflow follows the same lifecycle:
+The platform provides a consistent engineering workflow across operating systems, virtualization, storage, backup, disaster recovery, and supporting services while maintaining IBM Power as its primary focus.
 
 ```
 Request

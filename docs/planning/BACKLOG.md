@@ -65,9 +65,33 @@ Remaining
 - [ ] Authority review
 - [ ] Queue manager configuration review
 
+#### Pure Storage
+
+Completed
+
+- [x] CLI connectivity
+- [x] Controller health
+- [x] Capacity health
+- [x] Management certificate review
+- [x] Array connection health
+- [x] Pod health
+- [x] Replica link health
+- [x] Open alert review
+
+Remaining
+
+- [ ] Volume health
+- [ ] Host connectivity
+- [ ] Protection Group health
+- [ ] ActiveDR policy validation
+- [ ] Snapshot health
+- [ ] Hardware component health
+- [ ] Performance review
+- [ ] Capacity growth history
+- [ ] REST API collector
+
 #### Future Reviews
 
-- [ ] Pure Storage
 - [ ] VIOS
 - [ ] HMC
 - [ ] Veeam
@@ -83,6 +107,7 @@ Remaining
 - [ ] Standard execution result object
 - [ ] Standard workflow metadata
 - [ ] Shared evidence model
+- [ ] Shared health summary role
 - [ ] Markdown execution reports
 - [ ] Capture operator, execution time, validation results, and execution results
 - [ ] Store generated artifacts inside the request workspace
@@ -136,6 +161,7 @@ Completed
 - [x] Pure normalization
 - [x] Pure capacity widget
 - [x] Service Review preparation command
+- [x] Pure operational review
 
 Remaining
 
@@ -253,6 +279,7 @@ Remaining
 
 - [ ] Metadata merge
 - [ ] Override file
+- [ ] Infrastructure inventory (Pure Storage, HMC, future enterprise platforms)
 - [ ] Maintenance groups
 - [ ] Environment metadata
 - [ ] Historical inventory
@@ -284,6 +311,10 @@ Remaining
 
 ### Disaster Recovery
 
+- [ ] DR pre-flight operational review
+- [ ] DR post-activation validation
+- [ ] DR repository synchronization
+- [ ] Offline operation guidance
 - [ ] Documentation generation
 - [ ] Recovery planning
 - [ ] Deployment automation

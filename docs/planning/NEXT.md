@@ -21,5 +21,3 @@ Begin the Pure Storage operational review framework.
 ## Notes
 
 The AIX operational review framework is now stable enough to serve as the reference implementation for future technologies. Continue extending the shared framework rather than creating technology-specific implementations where practical.
-
-

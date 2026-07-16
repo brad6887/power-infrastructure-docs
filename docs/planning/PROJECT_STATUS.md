@@ -46,11 +46,25 @@ Current AIX operational review coverage includes:
 * Filesystem capacity
 * AIX error report analysis
 
+Current Pure Storage operational review coverage includes:
+
+* CLI connectivity
+* Controller health
+* Capacity utilization and data reduction
+* Management certificate validation
+* Array connection status
+* Pod health
+* Replica link health and lag
+* Open alert review
+
 Reference implementations currently include:
 
-* MQ Operational Health
 * AIX Operational Health
+* IBM MQ Operational Health
+* Pure Storage Operational Health
 
 The framework now supports both single-host operational reviews and inventory group reviews using the same workflow architecture. Each reviewed host generates independent artifacts which can then be aggregated into fleet-level operational summaries.
 
-This architecture establishes the foundation for future Operational Health workflows covering Pure Storage, VIOS, HMC, Oracle, Veeam, networking, and additional infrastructure technologies.
+The operational review architecture has now been successfully extended beyond IBM Power systems to enterprise storage infrastructure, demonstrating that new technologies can be added by implementing technology-specific validation, collection, and evaluation roles while reusing the common workflow, reporting, and artifact framework.
+
+This architecture establishes the foundation for future Operational Health workflows covering VIOS, HMC, Oracle, Veeam, Linux, networking, and additional enterprise infrastructure technologies.
